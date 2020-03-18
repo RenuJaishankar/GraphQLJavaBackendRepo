@@ -1,3 +1,3 @@
 # GraphQL Java Backend
 
-GraphQL based backend created with Spring Boot!
+GraphQL based backend created with Spring Boot!"# GraphQLRepo" 
