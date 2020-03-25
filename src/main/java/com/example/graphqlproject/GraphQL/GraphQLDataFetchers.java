@@ -3,8 +3,10 @@ package com.example.graphqlproject.GraphQL;
 import com.example.graphqlproject.Model.Animal;
 import com.example.graphqlproject.Model.ArcadeGame;
 import com.example.graphqlproject.Model.Fruit;
+import com.example.graphqlproject.Model.Major;
 import com.example.graphqlproject.Repository.AnimalRepository;
 import com.example.graphqlproject.Repository.ArcadeGameRepository;
+import com.example.graphqlproject.Repository.MajorRepository;
 import com.google.common.collect.ImmutableMap;
 import graphql.schema.DataFetcher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,8 @@ import java.util.Map;
 // its taking care of all of your business logic
 @Component
 public class GraphQLDataFetchers {
-
+    @Autowired
+    MajorRepository majorRepository;
     @Autowired
     ArcadeGameRepository arcadeGameRepository;
 
@@ -58,6 +61,7 @@ public class GraphQLDataFetchers {
     public static List<ArcadeGame> arcadeGameList;
     public static List<Animal> animalList;
     public static List<Fruit> fruiTList;
+    public static List<Major> majoRList;
 
 
 
@@ -145,7 +149,39 @@ public class GraphQLDataFetchers {
             return fruiTList;
         };
     }
+    public DataFetcher<Major> getMajorByIdFetcher(){
+        // TODO: get a working match for this query
+        return dataFetchingEnvironment -> {
+            String majorId = dataFetchingEnvironment.getArgument("id");
+            //THis id refers refers to id in Query
+            return majoRList
+                    .stream()
+                    .filter(major -> major.getId().toString().equals(majorId))
+                    .findFirst()
+                    .orElse(null);
+        };
+    }
+    public DataFetcher<List<Major>> getMajorsFetcher(){
+        // TODO: get a working match for this query
+        return dataFetchingEnvironment -> {
+            return majoRList;
+        };
+    }
     // TODO: Add mutation method for my entities
+
+    // method that creates a new arcade game entry
+    // this code directly calls the associated repository instead of the list
+    // since our runner has a while loop, our associated list will auto-update
+    public DataFetcher CreateArcadeGame(){
+        return dataFetchingEnvironment -> {
+            //dataFetchingEnvironment is a variable
+            String name= dataFetchingEnvironment.getArgument("name");
+            int amountOfPlayers = dataFetchingEnvironment.getArgument("amountOfPlayers");
+            ArcadeGame newArcadeGame = new ArcadeGame(name,amountOfPlayers);
+            arcadeGameRepository.save(newArcadeGame);
+            return newArcadeGame;
+        };
+    }
 }
 
 

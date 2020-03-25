@@ -4,9 +4,15 @@ type Query {
     arcadeGames(match : String):[ArcadeGame!]!
     animalById(id: ID): Animal
     fruitById(id: ID): Fruit
+    majorsById(id:ID): Major
     animals(match : String):[Animal!]! # The exclamation basically means that the value cannot be null
     fruits(match : String):[Fruit!]! # The exclamation basically means that the value cannot be null
+    majors(match : String):[Major!]! # The exclamation means the value cannot be null.
 }
+type Mutation{
+    createArcadeGame(name:String,amountOfPlayers:Int):ArcadeGame!
+}
+
 
 # This is a graphQL comment!
 # Cool, huh?
@@ -21,7 +27,13 @@ type Fruit {
     state: String
     color:String
 }
+type Major {
 
+    id:ID
+    major:String
+    noOfKids: Int
+
+}
 type ArcadeGame {
     id: ID
     name: String
