@@ -9,8 +9,9 @@ type Query {
     fruits(match : String):[Fruit!]! # The exclamation basically means that the value cannot be null
     majors(match : String):[Major!]! # The exclamation means the value cannot be null.
 }
-type Mutation{
-    createArcadeGame(name:String,amountOfPlayers:Int):ArcadeGame!
+
+type Mutation {
+    createArcadeGame(name:String, amountOfPlayers:Int):ArcadeGame!
 }
 
 

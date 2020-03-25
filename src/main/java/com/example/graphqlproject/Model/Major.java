@@ -9,7 +9,7 @@ public class Major {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    private String  major;
+    private String major;
     private int noOfKids;
 
     public Major(String major, int noOfKids) {

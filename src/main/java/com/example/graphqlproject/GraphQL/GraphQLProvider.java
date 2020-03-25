@@ -70,7 +70,7 @@ public class GraphQLProvider {
                 .type(newTypeWiring("Query")
                         .dataFetcher("majorById", graphQLDataFetchers.getMajorByIdFetcher()))
                 .type(newTypeWiring("Mutation")
-                        .dataFetcher("CreateArcadeGame",graphQLDataFetchers.CreateArcadeGame()))
+                        .dataFetcher("createArcadeGame", graphQLDataFetchers.createArcadeGame()))
                 .build();
     }
 

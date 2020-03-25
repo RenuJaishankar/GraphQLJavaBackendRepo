@@ -172,16 +172,18 @@ public class GraphQLDataFetchers {
     // method that creates a new arcade game entry
     // this code directly calls the associated repository instead of the list
     // since our runner has a while loop, our associated list will auto-update
-    public DataFetcher CreateArcadeGame(){
+
+
+    public DataFetcher createArcadeGame(){
         return dataFetchingEnvironment -> {
-            //dataFetchingEnvironment is a variable
-            String name= dataFetchingEnvironment.getArgument("name");
+            String name = dataFetchingEnvironment.getArgument("name");
             int amountOfPlayers = dataFetchingEnvironment.getArgument("amountOfPlayers");
-            ArcadeGame newArcadeGame = new ArcadeGame(name,amountOfPlayers);
+            ArcadeGame newArcadeGame = new ArcadeGame(name, amountOfPlayers);
             arcadeGameRepository.save(newArcadeGame);
             return newArcadeGame;
         };
     }
+
 }
 
 
