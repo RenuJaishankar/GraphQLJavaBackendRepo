@@ -44,7 +44,7 @@ public class GraphQLDataFetchers {
                     "pageCount", "371",
                     "authorId", "author-3")
     );
-
+//Immutable map is a class method is .of .This method will actually returns a map.
     private static List<Map<String, String>> authors = Arrays.asList(
             ImmutableMap.of("id", "author-1",
                     "firstName", "Joanne",
@@ -67,8 +67,11 @@ public class GraphQLDataFetchers {
 
     public DataFetcher getBookByIdDataFetcher() {
         // DataFetchingEnvironment is like an anonymous inner class
+        //inner class defining implementation of class inside another class
         // it's technically a functional interface: this is more succint...
         // ...specifically calls the get method inside of the interface
+        //dataFetchingEnvironment is a variable
+        //it belongs to string,
         return dataFetchingEnvironment -> {
             String bookId = dataFetchingEnvironment.getArgument("id");
             return books
@@ -115,6 +118,7 @@ public class GraphQLDataFetchers {
 
     public DataFetcher<List<Animal>> getAnimalsFetcher(){
         // TODO: get a working match for this query
+        //dataFetchingEnvironment is a variable
         return dataFetchingEnvironment -> {
             return animalList;
         };

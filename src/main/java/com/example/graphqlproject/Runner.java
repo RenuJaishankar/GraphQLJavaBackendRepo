@@ -41,6 +41,7 @@ public class Runner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // this code will always run and thus constantly update our lists
         // our lists are crucial for our GraphQL apis
+        //While true is for the list to continuously update
         while(true) {
 //        arcadeGameRepository.save(new ArcadeGame( "Pac-Man", 1));
 //        arcadeGameRepository.save(new ArcadeGame("Ms. Pac-Man", 1));
@@ -58,6 +59,7 @@ public class Runner implements CommandLineRunner {
             GraphQLDataFetchers.animalList = StreamSupport
                     .stream(animalRepository.findAll().spliterator(), false)
                     .collect(Collectors.toList());
+            //this equates animal list to stream.find all animals in repositrory and convert into string
 //        fruitRepository.save(new Fruit("Black Berries","ALABAMA","Black"));
 //        fruitRepository.save(new Fruit("Water Melon","Arkansas","Green"));
 //        fruitRepository.save(new Fruit("Asian Pears","Connecticut","Red"));

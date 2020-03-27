@@ -17,7 +17,7 @@ import java.net.URL;
 
 import static graphql.schema.idl.TypeRuntimeWiring.newTypeWiring;
 
-// this component can be thought of as a controller
+// this component can be thought of as a controller(where mapping is done)
 // it takes care of the "routing" of the graphql
 @Component
 public class GraphQLProvider {
@@ -39,6 +39,7 @@ public class GraphQLProvider {
 
     private GraphQLSchema buildSchema(String sdl) throws Exception {
         // this looks through your schema and helps register your types
+        //runtime wiring will provide the types in run time environment
         TypeDefinitionRegistry typeRegistry = new SchemaParser().parse(sdl);
         RuntimeWiring runtimeWiring = buildWiring();
         SchemaGenerator schemaGenerator = new SchemaGenerator();

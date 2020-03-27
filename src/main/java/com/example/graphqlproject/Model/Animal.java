@@ -2,7 +2,7 @@ package com.example.graphqlproject.Model;
 
 import javax.persistence.*;
 import java.util.Objects;
-
+//Model is where data attributes are stored
 @Entity
 @Table(name="animals")
 public class Animal {
