@@ -43,9 +43,9 @@ public class Runner implements CommandLineRunner {
         // our lists are crucial for our GraphQL apis
         //While true is for the list to continuously update
         while(true) {
-//        arcadeGameRepository.save(new ArcadeGame( "Pac-Man", 1));
-//        arcadeGameRepository.save(new ArcadeGame("Ms. Pac-Man", 1));
-//        arcadeGameRepository.save(new ArcadeGame("Pong", 2));
+       arcadeGameRepository.save(new ArcadeGame( "Pac-Man", 1));
+       arcadeGameRepository.save(new ArcadeGame("Ms. Pac-Man", 1));
+       arcadeGameRepository.save(new ArcadeGame("Pong", 2));
             // this code block turns our repository into a workable list
             GraphQLDataFetchers.arcadeGameList = StreamSupport
                     .stream(arcadeGameRepository.findAll().spliterator(), false)
@@ -53,9 +53,9 @@ public class Runner implements CommandLineRunner {
 
             Animal testAnimal = new Animal(4, "Wolf");
 
-//        animalRepository.save(new Animal( 0, "Snake"));
-//        animalRepository.save(new Animal( 4, "Cat"));
-//        animalRepository.save(testAnimal);
+       animalRepository.save(new Animal( 0, "Snake"));
+       animalRepository.save(new Animal( 4, "Cat"));
+       animalRepository.save(testAnimal);
             GraphQLDataFetchers.animalList = StreamSupport
                     .stream(animalRepository.findAll().spliterator(), false)
                     .collect(Collectors.toList());
