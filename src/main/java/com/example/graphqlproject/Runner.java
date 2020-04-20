@@ -60,9 +60,9 @@ public class Runner implements CommandLineRunner {
                     .stream(animalRepository.findAll().spliterator(), false)
                     .collect(Collectors.toList());
             //this equates animal list to stream.find all animals in repositrory and convert into string
-//        fruitRepository.save(new Fruit("Black Berries","ALABAMA","Black"));
-//        fruitRepository.save(new Fruit("Water Melon","Arkansas","Green"));
-//        fruitRepository.save(new Fruit("Asian Pears","Connecticut","Red"));
+        fruitRepository.save(new Fruit("Black Berries","ALABAMA","Black"));
+       fruitRepository.save(new Fruit("Water Melon","Arkansas","Green"));
+      fruitRepository.save(new Fruit("Asian Pears","Connecticut","Red"));
             GraphQLDataFetchers.fruiTList = StreamSupport
                     .stream(fruitRepository.findAll().spliterator(), false)
                     .collect(Collectors.toList());
